@@ -1,4 +1,4 @@
-# LASKAKIT ESP-12 board
+# LASKAKIT ESP-12 board (will be updated)
 
 The development board is called **LASKAKIT ESP-12** board which includes popular Wi-Fi module **[ESP-12](https://www.laskarduino.cz/ai-thinker-esp-12e-esp8266-wifi-modul/)** with IC ESP8266, what is supported by manufacturer and also community.
 
