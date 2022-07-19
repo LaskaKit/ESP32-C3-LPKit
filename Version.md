@@ -1,4 +1,4 @@
-### Version 1.1
-- Voltager devider changed to 100k/130k ADC max. input voltage is 4.423 V | Dìliè napìtí zmìnìn na 100k/130k ADC max. vstupní napìtí je 4,423 V
-#### Version 1.0
-- Initial | Poèáteèní
+### Version 2.2
+- Voltager devider changed to 100k/130k ADC max. input voltage is 4.423 V | DÄ›liÄ napÄ›tÃ­ zmÄ›nÄ›n na 100k/130k ADC max. vstupnÃ­ napÄ›tÃ­ je 4,423 V
+#### Version 2.1
+- Initial | PoÄÃ¡teÄnÃ­
