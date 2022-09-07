@@ -12,13 +12,13 @@ We develop our own [USB programmer](https://www.laskakit.cz/laskakit-ch340-progr
 
 ![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPkit_3.JPG)
 
-|  |  |
+| ESP module | 	ESP-C3-12F (ESP32-C3) | 
 |---|---|
-| ESP modul | 	ESP-C3-12F (ESP32-C3) | 
 | Input voltage | 	3,7-8V | 
 | Current in deep-sleep mode | 7μA | 
 | Digital I/O Pins | 9 | 
 | Analog inputs | 1 | 
+| Dimensions |
 | Length |34.2mm | 
 | Width | 25.6mm | 
 | Height | 7mm | 
