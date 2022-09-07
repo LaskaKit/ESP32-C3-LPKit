@@ -8,7 +8,7 @@ Deska je pinově a rozměrově kompatibilní s Wemos D1 Mini. Narozdíl od Wemos
 
 ![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPkit_2.JPG)
 
-K těmto deskám, a nejen k nim, jsme vytvořili též vhodný programátor, se kterým bude programování této desky naprostá hračka. Při použití tohoto našeho programátoru již není nutné před vlastním programováním mačkat žádná tlačítka, jako u některých podobných desek.
+K těmto deskám, a nejen k nim, jsme [vytvořili též vhodný programátor](https://www.laskakit.cz/laskakit-ch340-programmer-usb-c--microusb--uart/), se kterým bude programování této desky naprostá hračka. Při použití tohoto našeho programátoru již není nutné před vlastním programováním mačkat žádná tlačítka, jako u některých podobných desek.
 
 ![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPkit_3.JPG)
 
