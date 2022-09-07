@@ -23,3 +23,5 @@ K těmto deskám, a nejen k nim, jsme vytvořili též vhodný programátor, se 
 | Šířka | 25.6mm | 
 | Výška | 7mm | 
 | Váha | 8.26g | 
+
+**LaskaKit ESP32-C3-LPkit najdeš na https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482**
