@@ -12,13 +12,13 @@ K těmto deskám, a nejen k nim, jsme [vytvořili též vhodný programátor](ht
 
 ![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPkit_3.JPG)
 
-|  |  |
-|---|---|
 | ESP modul | 	ESP-C3-12F (ESP32-C3) | 
+|---|---|
 | Vstupní napětí | 	3,7-8V | 
 | Odběr proudu v deep-sleep módu | 7μA | 
 | Digitální I/O Piny | 9 | 
-| Analogové Vstupy | 1 | 
+| Analogové Vstupy | 1 |
+| Rozměry |
 | Délka |34.2mm | 
 | Šířka | 25.6mm | 
 | Výška | 7mm | 
