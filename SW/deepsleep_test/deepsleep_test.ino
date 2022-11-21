@@ -1,5 +1,5 @@
 
-#define SLEEP_SEC 15*60         // Measurement interval (seconds)
+#define SLEEP_SEC 15         // Measurement interval (seconds)
 
 void setup(void)
 {
@@ -14,7 +14,10 @@ void loop(void)
 }
 
 void goToSleep(){
-  Serial.println("going to sleep 5 sek");
+
+  Serial.println("I'm mot sleeping");
+  delay(3000);
+  Serial.println("going to sleep 15 sek");
   // ESP Deep Sleep 
   Serial.println("ESP in sleep mode");
   Serial.flush(); 

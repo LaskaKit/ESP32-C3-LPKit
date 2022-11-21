@@ -1,0 +1,13 @@
+Designator,Mid X,Mid Y,Layer,Rotation
+ADC,-7.70,19.33,Bottom,180.0
+C5,10.29, 7.19,Bottom,180.0
+C13, 6.76,22.07,Bottom,0.0
+C14, 7.21,20.52,Bottom,0.0
+CH_CURRENT, 4.19,11.02,Bottom,270.0
+FLASH,-12.04, 3.63,Bottom,270.0
+R1,10.29, 8.61,Bottom,0.0
+R2,-6.40,14.15,Bottom,270.0
+R4,-3.53,16.54,Bottom,90.0
+R15, 5.89,10.01,Bottom,180.0
+R16, 5.89,12.04,Bottom,180.0
+RESET,12.04, 3.63,Bottom,90.0
