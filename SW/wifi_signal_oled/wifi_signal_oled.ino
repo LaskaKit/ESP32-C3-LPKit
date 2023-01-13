@@ -3,8 +3,9 @@
 #include <Adafruit_SH110X.h>
 #include <WiFi.h>
 
-#define i2c_Address 0x3c
-//#define i2c_Address 0x3d
+#define i2c_Address 0x3d
+//#define i2c_Address 0x3c    // cut jumper I2C Address on lthe left and solder on the right 
+
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
