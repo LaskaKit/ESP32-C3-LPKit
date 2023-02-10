@@ -1,5 +1,7 @@
 ### Version 2.1
-- tbd
+- Doladěny hodnoty Pi článku antény
+- IPEX anténa/SMD anténa - rozdělení na samostatné desky
+- Přidána propojka na odpojení odporového děliče od baterie
 #### Version 2.0
 - Switched to bare C3 IC | Změna IO na holý C3
 #### Version 1.2
