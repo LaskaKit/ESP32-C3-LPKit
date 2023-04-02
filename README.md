@@ -1,23 +1,29 @@
-![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPkit_1.JPG)
+![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_1.jpg)
 
 # LaskaKit ESP32-C3-LPKit 
 
-The main part of the [LaskaKit ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482) development board is so popular Wi-Fi module ESP-C3-12F with ESP32-C3 IC, what is supported by manufacturer and huge community of makers. 
+The LaskaKit [ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482) development board is based on the popular Wi-Fi/Bluetooth ESP32-C3, which is widely supported by both the manufacturer and the bastling community.
 
-The board is pin-to-pin compatible with Wemos D1 Mini and doesn't include the USB-UART convertor what saves energy of the board. The LaskaKit ESP32-C3-LPkit is assembled by low-power regulator for 3.3V. Thanks to the regulator and used ESP32-C3 module, the whole board has so low power, the current of the board during deep sleep is only 7 uA. 
+The board is pin and size compatible with the Wemos D1 Mini. Even though the [ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482) includes a programmer like the popular Wemos D1 Mini, it achieves much lower power consumption and a more economical voltage regulator.</br>
+This makes it much more energy efficient. So if you are looking for a compatible board and want to save power at the same time, then the ESP32-C3-LPKit is for you.
 
-![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPkit_2.JPG)
+![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_4.jpg)
 
-We develop our own [USB programmer](https://www.laskakit.cz/laskakit-ch340-programmer-usb-c--microusb--uart/). It is versatile programmer what can be used for all of our LaskaKit development boards with ESP8266/ESP32/ESP32-C3. The programming of boards is so easy thanks to this programmer with to USB connectors (microUSB and USB-C).
+The ESP32-C3-LPKit also includes a charging circuit for the battery, which is charged from USB-C or from the VIN pin. The charging current is selected by a solder bridge on the bottom of the board. The default setting is 400mA.</br>
+The voltage measurement of the connected battery is disabled-unconnected by default (solder bridge on the bottom of the PCB). Either the battery (solder bridge) or the voltage connected on pin A0 (solder bridge) can be connected to the ESP32-C3. The measured voltage (battery/external input) is divided by voltage divider.
 
-![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPkit_3.JPG)
+To program, you need to put the chip in recording mode.</br>
+**Simply press the FLASH button and press and release RESET. Then release the FLASH button as well.**</br>
+On Windows OS you should hear the characteristic sound of the newly connected device.</br>
 
-| ESP module | 	ESP-C3-12F (ESP32-C3) | 
+For the older version of the ESP32-C3-LPKit you need a programmer, not only for them we have created a suitable programmer, with which programming this board will be a total breeze. When using our programmer, it is no longer necessary to press any buttons before the actual programming. Switching to programming mode is automatic.
+
+| ESP module | 	ESP32-C3 | 
 |---|---|
 | Input voltage | 	3,7-8V | 
 | Current in deep-sleep mode | 7μA | 
 | Digital I/O Pins | 9 | 
-| Analog inputs | 1 | 
+| Analog inputs | 5 | 
 | Dimensions |
 | Length |34.2mm | 
 | Width | 25.6mm | 
@@ -25,3 +31,7 @@ We develop our own [USB programmer](https://www.laskakit.cz/laskakit-ch340-progr
 | Weight | 8.26g | 
 
 **The board is available on https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482**
+
+Pinout
+![LaskaKit ESP32-C3-LPKit pinout](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_pinout.JPG)
+
