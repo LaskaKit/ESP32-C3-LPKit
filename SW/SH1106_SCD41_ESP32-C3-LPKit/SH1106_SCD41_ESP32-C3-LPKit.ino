@@ -57,6 +57,18 @@ void setup() {
 
   // Clear the buffer.
   display.clearDisplay();
+  // Set font
+  display.setFont(&DSEG14_Classic_Bold_12);
+  // Set color of text
+  display.setTextColor(SH110X_WHITE);
+  // Set position
+  display.setCursor(0, 20);
+  // Write text
+  display.println("Waiting  for");
+  display.println("");
+  display.println("measurement");
+  // Update display
+  display.display();
 
   /*----- SCD41 sequence ------*/
   //             begin, autoCalibrate
