@@ -1,4 +1,6 @@
-### Version 2.1
+### Version 3.0
+- Předeláno na ESP32-C3-MINI (deep sleep 11 µA)
+#### Version 2.1
 - Doladěny hodnoty Pi článku antény
 - IPEX anténa/SMD anténa - rozdělení na samostatné desky
 - Přidána propojka na odpojení odporového děliče od baterie
