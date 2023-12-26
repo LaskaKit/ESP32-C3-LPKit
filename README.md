@@ -12,6 +12,8 @@ This makes it much more energy efficient. So if you are looking for a compatible
 The ESP32-C3-LPKit also includes a charging circuit for the battery, which is charged from USB-C or from the VIN pin. The charging current is selected by a solder bridge on the bottom of the board. The default setting is 400mA.</br>
 The voltage measurement of the connected battery is disabled-unconnected by default (solder bridge on the bottom of the PCB). Either the battery (solder bridge) or the voltage connected on pin A0 (solder bridge) can be connected to the ESP32-C3. The measured voltage (battery/external input) is divided by voltage divider. The analog input for measured votlage is GPIO0.
 
+I2C uŠup is connected to GPIO8 - SDA and GPIO10 - SCL.
+
 To program, you need to put the chip in bootloader mode.</br>
 **Simply press the FLASH button and press and release RESET. Then release the FLASH button as well.**</br>
 On Windows OS you should hear the characteristic sound of the newly connected device.</br>
