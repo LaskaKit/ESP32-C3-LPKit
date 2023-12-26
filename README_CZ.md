@@ -12,6 +12,8 @@ Díky tomu je energeticky mnohem úspornější. Pokud tedy hledáš kompatibiln
 ESP32-C3-LPKit obsahuje i nabíjecí obvod pro akumulátor, ten se nabíjí z USB-C nebo z pinu VIN. Nabíjecí proud se volí pájecím mostem na spodní straně desky. Výchozí nastavení je 400mA.</br>
 Měření napětí připojeného akumulátoru je ve výchozím stavu zakázáno-nepřipojeno (pájecí most na spodní straně DPS). Do ESP32-C3 může být připojeno měření napětí buď akumulátoru (pájecí most) nebo napětí připojené na pinu A0 (pájecí most). Napětí připojené na A0 je sníženo o poměr napěťového děliče. Analogový vstup pro měření napětí je GPIO0.
 
+I2C uŠup je připojen na GPIO8 - SDA a GPIO10 - SCL.
+
 Pro naprogramování je potřeba dostat čip do režimu nahrávání. </br>
 **Stačí zmáčknout tlačítko FLASH a zmáčknout a pustit RESET. Poté pustit i tlačítko FLASH** </br>
 U OS Windows byste měli uslyšet charakteristický zvuk nově připojého zařízení.</br>
