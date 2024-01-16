@@ -1,5 +1,5 @@
-
 #define SLEEP_SEC 15         // Measurement interval (seconds)
+#define PIN_ON    4    
 
 void setup(void)
 {
@@ -18,7 +18,8 @@ void loop(void)
 void goToSleep(){
 
   Serial.println("I'm mot sleeping");
-  delay(3000);
+  delay(1000);
+  digitalWrite(PIN_ON, LOW);   // Turn on the second stabilisator
   Serial.println("going to sleep 15 sek");
   // ESP Deep Sleep 
   Serial.println("ESP in sleep mode");
