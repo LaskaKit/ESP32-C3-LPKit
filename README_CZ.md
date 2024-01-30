@@ -1,4 +1,5 @@
 ![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_1.jpg)
+![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_2.jpg)
 
 # LaskaKit ESP32-C3-LPKit 
 

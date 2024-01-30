@@ -1,5 +1,5 @@
 ![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_1.jpg)
-
+![LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_2.jpg)
 # LaskaKit ESP32-C3-LPKit 
 
 The LaskaKit [ESP32-C3-LPKit](https://www.laskakit.cz/laskkit-esp-12-board/?variantId=10482) development board is based on the popular Wi-Fi/Bluetooth ESP32-C3, which is widely supported by both the manufacturer and the bastling community.
