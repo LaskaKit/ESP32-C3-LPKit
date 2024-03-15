@@ -1,4 +1,7 @@
-### Version 3.0
+### Version 3.2
+- Změna jumperu ADC_IO0 na dvoucestný, aby bylo možné připojit pin A0 napřímo na IO0 bez napěťového děliče na desce.
+#### Version 3.1
+#### Version 3.0
 - Předeláno na ESP32-C3-MINI (deep sleep 11 µA)
 #### Version 2.1
 - Doladěny hodnoty Pi článku antény
