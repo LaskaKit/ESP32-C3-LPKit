@@ -1,4 +1,6 @@
-### Version 3.2
+### Version 3.3
+- Přidány I2C pullup rezistory
+#### Version 3.2
 - Změna jumperu ADC_IO0 na dvoucestný, aby bylo možné připojit pin A0 napřímo na IO0 bez napěťového děliče na desce.
 #### Version 3.1
 #### Version 3.0
