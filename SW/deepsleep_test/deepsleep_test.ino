@@ -1,3 +1,9 @@
+/* Example code how to use deep sleep for ESP32-C3-LPKit v1.x
+* For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
+*
+*  laskakit.cz (2023)
+*/
+
 #define SLEEP_SEC 15         // Measurement interval (seconds)
 #define PIN_ON    4    
 
