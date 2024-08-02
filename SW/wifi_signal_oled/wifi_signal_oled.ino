@@ -1,3 +1,9 @@
+/* Example code how measure wifi signal and who on OLED with ESP32-C3-LPKit v1.x
+* For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
+*
+*  laskakit.cz (2023)
+*/
+
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
@@ -12,8 +18,8 @@
 #define OLED_RESET -1
 Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-const char* ssid = "laskalab";
-const char* password = "laskaLAB754125";
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 
 void setup()   {
   Wire.begin(8, 10); // 8,10 = ESP32-C3-LPKit v2
