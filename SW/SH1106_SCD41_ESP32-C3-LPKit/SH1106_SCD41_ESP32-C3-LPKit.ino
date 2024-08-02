@@ -1,14 +1,15 @@
 /*
 * Example code for ESP32-C3_OLED_kit 
 *
-* ESP32-C3-LPKit reads data from SCD41
+* ESP32-C3-LPKit v1.x reads data from SCD41
 * It shows the CO2, temperature, humidity
 * to OLED display
 *
 * Hardware:
-* ESP32-C3-LPKit - https://www.laskakit.cz/laskkit-esp-12-board/
+* ESP32-C3-LPKit v1.x - https://www.laskakit.cz/laskkit-esp-12-board/
 * SCD41 Senzor CO2, teploty a vlhkosti vzduchu  - https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/
 * OLED displej 128x64 1.3" I²C - https://www.laskakit.cz/laskakit-oled-displej-128x64-1-3--i2c/
+* For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
 *
 * Library:
 * https://github.com/sparkfun/SparkFun_SCD4x_Arduino_Library
