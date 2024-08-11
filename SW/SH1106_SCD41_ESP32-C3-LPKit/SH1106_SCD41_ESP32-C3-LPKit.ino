@@ -1,12 +1,12 @@
 /*
 * Example code for ESP32-C3_OLED_kit 
 *
-* ESP32-C3-LPKit v1.x reads data from SCD41
+* ESP32-C3-LPKit v3.x reads data from SCD41
 * It shows the CO2, temperature, humidity
 * to OLED display
 *
 * Hardware:
-* ESP32-C3-LPKit v1.x - https://www.laskakit.cz/laskkit-esp-12-board/
+* ESP32-C3-LPKit v3.x - https://www.laskakit.cz/laskkit-esp-12-board/
 * SCD41 Senzor CO2, teploty a vlhkosti vzduchu  - https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/
 * OLED displej 128x64 1.3" I²C - https://www.laskakit.cz/laskakit-oled-displej-128x64-1-3--i2c/
 * For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
@@ -15,6 +15,17 @@
 * https://github.com/sparkfun/SparkFun_SCD4x_Arduino_Library
 * https://github.com/adafruit/Adafruit_SH110x
 *
+* 
+* !!! ESP library version !!!
+* ESP32 library 3.0.x
+* Condition: Tools -> USB CDC On Boot must be enabled
+* use HWCDCSerial instead of USBSerial
+* ---
+* ESP32 library 2.0.xy
+* Condition: Tools -> USB CDC On Boot must be disabled
+* use USBSerial instead of HWCDCSerial
+*
+* Board: ESP32-C3 Dev Module
 */
 
 
@@ -47,7 +58,7 @@ SCD4x SCD41;
 
 void setup() {
   // Speed of Serial
-  Serial.begin(115200);
+  USBSerial.begin(115200);
   // set dedicated I2C pins 8 - SCD, 10 SCL for ESP32-C3-LPKit
   Wire.begin(8, 10);
 
@@ -75,13 +86,13 @@ void setup() {
   //             begin, autoCalibrate
   //               |      |
   if (SCD41.begin(false, true) == false) {
-    Serial.println("SCD41 was not set correctly. Check the connection.");
+    USBSerial.println("SCD41 was not set correctly. Check the connection.");
     while (1)
       ;
   }
 
   if (SCD41.startLowPowerPeriodicMeasurement() == true) {
-    Serial.println("Low power mode enabled.");
+    USBSerial.println("Low power mode enabled.");
   }
 }
 
@@ -95,20 +106,19 @@ void loop() {
     temperature = SCD41.getTemperature();
     humidity = SCD41.getHumidity();
 
-    Serial.println();
+    USBSerial.println();
 
-    Serial.print("CO2(ppm):");
-    Serial.println(co2);
+    USBSerial.print("CO2(ppm):");
+    USBSerial.println(co2);
 
-    Serial.print("\tTemperature(C):");
-    Serial.println(temperature);
+    USBSerial.print("\tTemperature(C):");
+    USBSerial.println(temperature);
 
-    Serial.print("\tHumidity(%RH):");
-    Serial.println(humidity);
-
-    display.clearDisplay();
+    USBSerial.print("\tHumidity(%RH):");
+    USBSerial.println(humidity);
 
     /*----- OLED sequence ------*/
+    display.clearDisplay();
     // CO2
     display.setFont(&DSEG14_Classic_Bold_32);
     display.setTextColor(SH110X_WHITE);
