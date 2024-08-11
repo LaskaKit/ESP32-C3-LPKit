@@ -9,7 +9,6 @@
 * ESP32-C3-LPKit v3.x - https://www.laskakit.cz/laskkit-esp-12-board/
 * SCD41 Senzor CO2, teploty a vlhkosti vzduchu  - https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/
 * OLED displej 128x64 1.3" I²C - https://www.laskakit.cz/laskakit-oled-displej-128x64-1-3--i2c/
-* For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
 *
 * Library:
 * https://github.com/sparkfun/SparkFun_SCD4x_Arduino_Library
@@ -18,12 +17,14 @@
 * 
 * !!! ESP library version !!!
 * ESP32 library 3.0.x
-* Condition: Tools -> USB CDC On Boot must be enabled
-* use HWCDCSerial instead of USBSerial
+* Condition: Tools -> if USB CDC On Boot is ENABLED then
+* Serial means native USB
+* Tools -> if USB CDC On Boot is DISABLED then
+* Serial means UART
 * ---
 * ESP32 library 2.0.xy
 * Condition: Tools -> USB CDC On Boot must be disabled
-* use USBSerial instead of HWCDCSerial
+* use USBSerial to send data through native USB 
 *
 * Board: ESP32-C3 Dev Module
 */
@@ -60,7 +61,7 @@ SCD4x SCD41;
 
 void setup() {
   // Speed of Serial
-  USBSerial.begin(115200);
+  Serial.begin(115200);
   
   pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
   digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
@@ -92,13 +93,13 @@ void setup() {
   //             begin, autoCalibrate
   //               |      |
   if (SCD41.begin(false, true) == false) {
-    USBSerial.println("SCD41 was not set correctly. Check the connection.");
+    Serial.println("SCD41 was not set correctly. Check the connection.");
     while (1)
       ;
   }
 
   if (SCD41.startLowPowerPeriodicMeasurement() == true) {
-    USBSerial.println("Low power mode enabled.");
+    Serial.println("Low power mode enabled.");
   }
 }
 
@@ -112,16 +113,16 @@ void loop() {
     temperature = SCD41.getTemperature();
     humidity = SCD41.getHumidity();
 
-    USBSerial.println();
+    Serial.println();
 
-    USBSerial.print("CO2(ppm):");
-    USBSerial.println(co2);
+    Serial.print("CO2(ppm):");
+    Serial.println(co2);
 
-    USBSerial.print("\tTemperature(C):");
-    USBSerial.println(temperature);
+    Serial.print("\tTemperature(C):");
+    Serial.println(temperature);
 
-    USBSerial.print("\tHumidity(%RH):");
-    USBSerial.println(humidity);
+    Serial.print("\tHumidity(%RH):");
+    Serial.println(humidity);
 
     /*----- OLED sequence ------*/
     display.clearDisplay();
@@ -148,6 +149,7 @@ void loop() {
 
     digitalWrite(PIN_ON, LOW);   // Turn off the second stabilisator
     // go to sleep for 1 minute
+    Serial.flush();
     esp_sleep_enable_timer_wakeup(60 * 1000000);
     esp_deep_sleep_start();
   }
