@@ -1,7 +1,17 @@
-/* Example code how to use deep sleep for ESP32-C3-LPKit v1.x
-* For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
+/* Example code how to use deep sleep for ESP32-C3-LPKit v3.x
 *
-*  laskakit.cz (2023)
+*  laskakit.cz (2024)
+*
+* !!! ESP library version !!!
+* ESP32 library 3.0.x
+* Condition: Tools -> USB CDC On Boot must be enabled
+* use HWCDCSerial instead of USBSerial
+* ---
+* ESP32 library 2.0.xy
+* Condition: Tools -> USB CDC On Boot must be disabled
+* use USBSerial instead of HWCDCSerial
+*
+* Board: ESP32-C3 Dev Module
 */
 
 #define SLEEP_SEC 15         // Measurement interval (seconds)
@@ -9,7 +19,7 @@
 
 void setup(void)
 {
-  Serial.begin(115200);
+  USBSerial.begin(115200);
   pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
   digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
 
@@ -23,13 +33,13 @@ void loop(void)
 
 void goToSleep(){
 
-  Serial.println("I'm mot sleeping");
+  USBSerial.println("I'm not sleeping");
   delay(1000);
   digitalWrite(PIN_ON, LOW);   // Turn on the second stabilisator
-  Serial.println("going to sleep 15 sek");
+  USBSerial.println("going to sleep 15 sek");
   // ESP Deep Sleep 
-  Serial.println("ESP in sleep mode");
-  Serial.flush(); 
+  USBSerial.println("ESP in sleep mode");
+  USBSerial.flush(); 
   esp_sleep_enable_timer_wakeup(SLEEP_SEC * 1000000);
   esp_deep_sleep_start();
 }
