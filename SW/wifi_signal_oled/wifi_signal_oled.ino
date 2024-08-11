@@ -57,7 +57,7 @@ void setup()   {
   display.setCursor(0, 0);
   display.println("Starting...");
   display.display();
-  Serial.println("Starting...");
+  USBSerial.println("Starting...");
 
   delay(1000);
   display.setTextSize(5);
@@ -68,7 +68,7 @@ void loop() {
   display.clearDisplay();
   display.setCursor(0, 0);
   display.print(WiFi.RSSI());
-  Serial.println(WiFi.RSSI());
+  USBSerial.println(WiFi.RSSI());
   display.display();
   delay(1000);
 }
