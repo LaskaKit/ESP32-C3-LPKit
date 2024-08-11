@@ -56,9 +56,15 @@ int humidity = 0;
 // SCD41
 SCD4x SCD41;
 
+#define PIN_ON    4    
+
 void setup() {
   // Speed of Serial
   USBSerial.begin(115200);
+  
+  pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
+  digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
+  
   // set dedicated I2C pins 8 - SCD, 10 SCL for ESP32-C3-LPKit
   Wire.begin(8, 10);
 
@@ -140,6 +146,7 @@ void loop() {
     // update display
     display.display();
 
+    digitalWrite(PIN_ON, LOW);   // Turn off the second stabilisator
     // go to sleep for 1 minute
     esp_sleep_enable_timer_wakeup(60 * 1000000);
     esp_deep_sleep_start();
