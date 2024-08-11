@@ -4,12 +4,14 @@
 *
 * !!! ESP library version !!!
 * ESP32 library 3.0.x
-* Condition: Tools -> USB CDC On Boot must be enabled
-* use HWCDCSerial instead of USBSerial
+* Condition: Tools -> if USB CDC On Boot is ENABLED then
+* Serial means native USB
+* Tools -> if USB CDC On Boot is DISABLED then
+* Serial means UART
 * ---
 * ESP32 library 2.0.xy
 * Condition: Tools -> USB CDC On Boot must be disabled
-* use USBSerial instead of HWCDCSerial
+* use USBSerial to send data through native USB 
 *
 * Board: ESP32-C3 Dev Module
 */
@@ -37,15 +39,15 @@ void setup()   {
   digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
   
   Wire.begin(8, 10); // 8,10 = ESP32-C3-LPKit v3
-  USBSerial.begin(115200);
+  Serial.begin(115200);
 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    USBSerial.print(".");
+    Serial.print(".");
   }
-  USBSerial.println("");
-  USBSerial.println("WiFi connected");
+  Serial.println("");
+  Serial.println("WiFi connected");
 
   delay(250); // wait for the OLED to power up
   display.begin(i2c_Address, true); // Address 0x3C default
@@ -57,7 +59,7 @@ void setup()   {
   display.setCursor(0, 0);
   display.println("Starting...");
   display.display();
-  USBSerial.println("Starting...");
+  Serial.println("Starting...");
 
   delay(1000);
   display.setTextSize(5);
@@ -68,7 +70,7 @@ void loop() {
   display.clearDisplay();
   display.setCursor(0, 0);
   display.print(WiFi.RSSI());
-  USBSerial.println(WiFi.RSSI());
+  Serial.println(WiFi.RSSI());
   display.display();
   delay(1000);
 }
