@@ -15,13 +15,10 @@
 */
 
 #define SLEEP_SEC 15         // Measurement interval (seconds)
-#define PIN_ON    4    
 
 void setup(void)
 {
   USBSerial.begin(115200);
-  pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
-  digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
 
   goToSleep();
 }
@@ -35,7 +32,6 @@ void goToSleep(){
 
   USBSerial.println("I'm not sleeping");
   delay(1000);
-  digitalWrite(PIN_ON, LOW);   // Turn on the second stabilisator
   USBSerial.println("going to sleep 15 sek");
   // ESP Deep Sleep 
   USBSerial.println("ESP in sleep mode");
