@@ -19,9 +19,10 @@
 #include <Adafruit_SH110X.h>
 #include <WiFi.h>
 
+#define PIN_ON    4  
+
 #define i2c_Address 0x3d
 //#define i2c_Address 0x3c    // cut jumper I2C Address on lthe left and solder on the right 
-
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -32,6 +33,9 @@ const char* ssid = "SSID";
 const char* password = "PASSWORD";
 
 void setup()   {
+  pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
+  digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
+  
   Wire.begin(8, 10); // 8,10 = ESP32-C3-LPKit v3
   USBSerial.begin(115200);
 
