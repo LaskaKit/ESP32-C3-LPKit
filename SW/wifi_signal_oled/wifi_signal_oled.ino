@@ -1,7 +1,19 @@
-/* Example code how measure wifi signal and who on OLED with ESP32-C3-LPKit v1.x
-* For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
+/* Example code how measure wifi signal and who on OLED with ESP32-C3-LPKit v3.x
 *
 *  laskakit.cz (2023)
+*
+* !!! ESP library version !!!
+* ESP32 library 3.0.x
+* Condition: Tools -> if USB CDC On Boot is ENABLED then
+* Serial means native USB
+* Tools -> if USB CDC On Boot is DISABLED then
+* Serial means UART
+* ---
+* ESP32 library 2.0.xy
+* Condition: Tools -> USB CDC On Boot must be disabled
+* use USBSerial to send data through native USB 
+*
+* Board: ESP32-C3 Dev Module
 */
 
 #include <Wire.h>
@@ -9,9 +21,10 @@
 #include <Adafruit_SH110X.h>
 #include <WiFi.h>
 
+#define PIN_ON    4  
+
 #define i2c_Address 0x3d
 //#define i2c_Address 0x3c    // cut jumper I2C Address on lthe left and solder on the right 
-
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -22,7 +35,10 @@ const char* ssid = "SSID";
 const char* password = "PASSWORD";
 
 void setup()   {
-  Wire.begin(8, 10); // 8,10 = ESP32-C3-LPKit v2
+  pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
+  digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
+  
+  Wire.begin(8, 10); // 8,10 = ESP32-C3-LPKit v3
   Serial.begin(115200);
 
   WiFi.begin(ssid, password);

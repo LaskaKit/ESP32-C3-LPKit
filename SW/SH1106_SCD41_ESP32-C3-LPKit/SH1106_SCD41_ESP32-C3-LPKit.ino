@@ -1,20 +1,32 @@
 /*
 * Example code for ESP32-C3_OLED_kit 
 *
-* ESP32-C3-LPKit v1.x reads data from SCD41
+* ESP32-C3-LPKit v3.x reads data from SCD41
 * It shows the CO2, temperature, humidity
 * to OLED display
 *
 * Hardware:
-* ESP32-C3-LPKit v1.x - https://www.laskakit.cz/laskkit-esp-12-board/
+* ESP32-C3-LPKit v3.x - https://www.laskakit.cz/laskkit-esp-12-board/
 * SCD41 Senzor CO2, teploty a vlhkosti vzduchu  - https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/
 * OLED displej 128x64 1.3" I²C - https://www.laskakit.cz/laskakit-oled-displej-128x64-1-3--i2c/
-* For ESP32-C3-LPKit v2.x and 3.x - use (native) USBSerial instead of Serial
 *
 * Library:
 * https://github.com/sparkfun/SparkFun_SCD4x_Arduino_Library
 * https://github.com/adafruit/Adafruit_SH110x
 *
+* 
+* !!! ESP library version !!!
+* ESP32 library 3.0.x
+* Condition: Tools -> if USB CDC On Boot is ENABLED then
+* Serial means native USB
+* Tools -> if USB CDC On Boot is DISABLED then
+* Serial means UART
+* ---
+* ESP32 library 2.0.xy
+* Condition: Tools -> USB CDC On Boot must be disabled
+* use USBSerial to send data through native USB 
+*
+* Board: ESP32-C3 Dev Module
 */
 
 
@@ -45,9 +57,15 @@ int humidity = 0;
 // SCD41
 SCD4x SCD41;
 
+#define PIN_ON    4    
+
 void setup() {
   // Speed of Serial
   Serial.begin(115200);
+  
+  pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
+  digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
+  
   // set dedicated I2C pins 8 - SCD, 10 SCL for ESP32-C3-LPKit
   Wire.begin(8, 10);
 
@@ -106,9 +124,8 @@ void loop() {
     Serial.print("\tHumidity(%RH):");
     Serial.println(humidity);
 
-    display.clearDisplay();
-
     /*----- OLED sequence ------*/
+    display.clearDisplay();
     // CO2
     display.setFont(&DSEG14_Classic_Bold_32);
     display.setTextColor(SH110X_WHITE);
@@ -130,7 +147,9 @@ void loop() {
     // update display
     display.display();
 
+    digitalWrite(PIN_ON, LOW);   // Turn off the second stabilisator
     // go to sleep for 1 minute
+    Serial.flush();
     esp_sleep_enable_timer_wakeup(60 * 1000000);
     esp_deep_sleep_start();
   }
