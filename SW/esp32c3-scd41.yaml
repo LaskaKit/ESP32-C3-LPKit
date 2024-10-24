@@ -1,0 +1,70 @@
+esphome:
+  name: esp32c3-scd41
+  friendly_name: esp32c3-scd41
+  platformio_options:
+    board_build.flash_mode: dio
+    board_build.f_flash: 40000000L
+    board_build.flash_size: 4MB
+    board_build.mcu: esp32c3
+
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: ESP32C3
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: VERY_VERBOSE
+
+# Enable Home Assistant API
+api:
+#  encryption:
+#    key: "SuperSecretKeyForHomeAssistantToWork"
+
+i2c:
+  sda: 8
+  scl: 10
+  scan: false
+  id: bus_a
+  frequency: 200kHz
+
+sensor:
+  - platform: scd4x
+    i2c_id: bus_a
+    address: 0x62
+    co2:
+      name: "CO2"
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    update_interval: 30s
+
+#ota:
+#  password: "SuperSecretOTAkey"
+
+wifi:
+  ssid: "ssid"
+  password: "pw"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp-Scd41 Fallback Hotspot"
+    password: "AnotherPassword"
+
+captive_portal:
+
+# Zapnutí napìtí pøes GPIO 4
+output:
+  - platform: gpio
+    id: power_output
+    pin: 4
+
+# Pøi bootu zapneme napájení pøes GPIO 4
+switch:
+  - platform: output
+    name: "Power Switch"
+    output: power_output
+    id: power_switch
+    restore_mode: ALWAYS_ON
