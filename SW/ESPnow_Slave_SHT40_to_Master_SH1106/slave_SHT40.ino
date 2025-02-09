@@ -1,7 +1,8 @@
 /*
 * SLAVE zařízení 
 *
-* Vzorový kód pro využití ESPnow, přes které jsou odeslány teplota a vlhkost vzduchu
+* Vzorový kód pro využití ESPnow, přes které jsou odeslány teplota, vlhkost vzduchu
+* a napětí baterie SLAVE zařízení
 * Upozornění: je nezbytné zkopírovat MAC adresu z MASTER zařízení do SLAVE (masterMAC[])
 * Nejprve nahraj MASTER kód do ESP32-C3 LPkit a ESP32-C3 zobrazí svou MAC adresu,
 * kterou zapíšeš do SLAVE kódu a nahraješ do SLAVE zařízení.
@@ -34,11 +35,14 @@ Adafruit_SHT4x sht4;
 typedef struct {
     float temperature;
     float humidity;
+    float bat;
 } SensorData;
 
 SensorData dataToSend;
 
 #define PIN_ON    4  // GPIO pro povolení napájení SHT40
+#define ADCpin 0
+#define DeviderRatio 1.7693877551  // Dělič napětí na ADC pinu 1MOhm + 1.3MOhm
 
 void onSent(const uint8_t *macAddr, esp_now_send_status_t status) {
   USBSerial.print("Odeslání: ");
@@ -79,16 +83,21 @@ void setup() {
 }
 
 void loop() {
+  //měření baterie
+  float bat = analogReadMilliVolts(ADCpin) * DeviderRatio / 1000;
+
   //čtení dat z SHT40
   sensors_event_t humidity, temp;
   sht4.getEvent(&humidity, &temp);
   
   dataToSend.temperature = temp.temperature;
   dataToSend.humidity = humidity.relative_humidity;
+  dataToSend.bat = bat;
 
   //zprávy přes USB
   USBSerial.print(dataToSend.temperature); USBSerial.println(" degC");
   USBSerial.print(dataToSend.humidity); USBSerial.println(" %Rh");
+  USBSerial.print(bat); USBSerial.println(" V");
   
   //odeslání dat
   esp_err_t result = esp_now_send(masterMAC, (uint8_t *)&dataToSend, sizeof(dataToSend));
