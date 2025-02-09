@@ -1,7 +1,8 @@
 /*
 * MASTER zařízení
 *
-* Vzorový kód pro využití ESPnow. SLAVE zařízení změří teplotu a vlhkost a odešle
+* Vzorový kód pro využití ESPnow. SLAVE zařízení změří teplotu, vlhkost a 
+* napětí baterie SLAVE zařízení a odešle
 * do MASTER zařízení, které hodnoty vypíše do Serial a na OLED displej
 * 
 * Upozornění: je nezbytné zkopírovat MAC adresu z MASTER zařízení do SLAVE (masterMAC[])
@@ -28,6 +29,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 
+//#define OLED_RESET 4
 Adafruit_SH1106G display = Adafruit_SH1106G(128, 64, &Wire, -1); //Nastavý display
 #define SH1106_I2C_ADDRESS 0x3D
 #define PIN_ON    4    // GPIO pro povolení napájení SH1106 OLED
@@ -35,6 +37,7 @@ Adafruit_SH1106G display = Adafruit_SH1106G(128, 64, &Wire, -1); //Nastavý disp
 typedef struct {
     float temperature;
     float humidity;
+    float bat;
 } SensorData;
 
 SensorData receivedData;
@@ -48,7 +51,9 @@ void onReceive(const uint8_t *macAddr, const uint8_t *incomingData, int len) {
   USBSerial.print(receivedData.temperature);
   USBSerial.print(" °C, ");
   USBSerial.print(receivedData.humidity);
-  USBSerial.println(" % ");
+  USBSerial.println(" %, ");
+  USBSerial.print(receivedData.bat);
+  USBSerial.println(" V");
 
   //obsluha OLED
   display.clearDisplay();
@@ -57,11 +62,16 @@ void onReceive(const uint8_t *macAddr, const uint8_t *incomingData, int len) {
   display.print("T: "); display.print(receivedData.temperature); 
   display.setTextSize(1); 
   display.println(" degC");
-  display.setCursor(0, 30);
+  display.setCursor(0, 25);
   display.setTextSize(2); 
   display.print("H: "); display.print(receivedData.humidity); 
   display.setTextSize(1); 
-  display.println(" %Rh");
+  display.print(" %Rh");
+  display.setCursor(0, 50);
+  display.setTextSize(2); 
+  display.print("Bat: "); display.print(receivedData.bat); 
+  display.setTextSize(1); 
+  display.println(" V");
   display.display();
   delay(100);
 }
