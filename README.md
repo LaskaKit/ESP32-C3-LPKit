@@ -36,4 +36,8 @@ For the older version of the ESP32-C3-LPKit you need a programmer, not only for 
 
 Pinout
 ![LaskaKit ESP32-C3-LPKit pinout](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_pinout.JPG)
-
+Battery voltage measurement connections for v3.2:
+* Battery voltage measurement: left side JP2 + left side ADC_IO0
+* Voltage measurement on pin A0, max. 4.2V: right side JP2 + left side ADC_IO0
+* Voltage measurement on pin A0, max. 2.450V: JP2 not connected + right side ADC_IO0
+![pinout LaskaKit ESP32-C3-LPKit](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_V3-2-bat.JPG)
