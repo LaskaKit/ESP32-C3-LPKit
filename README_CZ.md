@@ -37,8 +37,8 @@ Pro staší verzi ESP32-C3-LPKit je potřeba programátor, nejen k nim jsme [vyt
 
 Pinout ESP32-C3-LPKit vidíš níže
 ![LaskaKit ESP32-C3-LPKit pinout](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_pinout.JPG)
-Propojení pro měření napětí baterie:
+Propojení pro měření napětí baterie pro v3.2:
 * Měření napětí na baterii: leva strana JP2 + levá strana ADC_IO0
 * Měření napětí na pinu A0, max. 4.2V: pravá strana JP2 + levá strana ADC_IO0
 * Měření napětí na pinu A0, max. 2.450V: JP2 nezapojeny + pravá strana ADC_IO0
-![LaskaKit ESP32-C3-LPKit pinout](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_V3-2-bat.JPG)
+![LaskaKit ESP32-C3-LPKit pinout](https://github.com/LaskaKit/ESP32-C3-LPKit/blob/main/img/ESP32-C3-LPKit_V3-2-bat.jpg)
