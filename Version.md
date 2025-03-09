@@ -1,4 +1,7 @@
-### Version 3.3
+### Version 3.4
+- Redo power line, LDO chnaged to RT9080
+- Přidány I2C pullup rezistory
+#### Version 3.3
 - Přidány I2C pullup rezistory
 #### Version 3.2
 - Změna jumperu ADC_IO0 na dvoucestný, aby bylo možné připojit pin A0 napřímo na IO0 bez napěťového děliče na desce.
