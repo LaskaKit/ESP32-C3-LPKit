@@ -1,6 +1,8 @@
-### Version 3.4
+### Version 4.0
 - Redo power line, LDO chnaged to RT9080
-- Přidány I2C pullup rezistory
+- + Neopixel LED
+- + µŠup SPI connector
+- ADC changed back to simplicity
 #### Version 3.3
 - Přidány I2C pullup rezistory
 #### Version 3.2
