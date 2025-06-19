@@ -66,7 +66,7 @@ void setup() {
   pinMode(PIN_ON, OUTPUT);      // Set EN pin for second stabilisator as output
   digitalWrite(PIN_ON, HIGH);   // Turn on the second stabilisator
   
-  // set dedicated I2C pins 8 - SCD, 10 SCL for ESP32-C3-LPKit
+  // set dedicated I2C pins 8 - SDA, 10 SCL for ESP32-C3-LPKit
   Wire.begin(8, 10);
 
   /*----- OLED sequence ------*/
