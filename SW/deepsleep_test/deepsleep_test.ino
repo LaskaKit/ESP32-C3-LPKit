@@ -1,6 +1,7 @@
-/* Example code how to use deep sleep for ESP32-C3-LPKit v3.x
+/* Example code how to use deep sleep for ESP32-C3-LPKit
+*   V4.0: 15 µA
 *
-*  laskakit.cz (2024)
+*  laskakit.cz (2025)
 *
 * !!! ESP library version !!!
 * ESP32 library 3.0.x
